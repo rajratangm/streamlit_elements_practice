@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "practice"
+version = "0.1.0"
+description = ""
+authors = ["Rajratan Gulab More <145323630+rajratangm@users.noreply.github.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+streamlit = "^1.40.1"
+streamlit-elements = "^0.1.0"
+streamlit-card = "^1.0.2"
+streamlit-navigation-bar="3.3.0"
+streamlit-option-menu="0.4.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
