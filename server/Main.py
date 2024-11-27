@@ -1,7 +1,7 @@
 import streamlit as st
 from datetime import datetime
 import pandas as pd
-from streamlit_modal import Modal
+
 import plotly.express as px
 import numpy as np
 
