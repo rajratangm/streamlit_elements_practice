@@ -290,10 +290,12 @@ def price_and_fundamental():
                 help="Check to show only the inputs for the run. Useful if the run hasn't been solved and inserted yet.",
                 key="Show_inputs_only"
             )
-            if st.button('Refresh job list'):
-                st.experimental_rerun()
-            
-            st.button('Load Data')
+             col3_1, col3_2 = st.columns(2)
+             with col3_1:
+                  if st.button('Refresh job list'):
+                     st.experimental_rerun()
+            with col3_2:
+                 st.button('Load Data')
 
     # Right Column Filters
     with col2:
