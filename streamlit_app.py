@@ -1,7 +1,8 @@
 import streamlit as st
 from datetime import datetime
 import pandas as pd
-
+import streamlit as st
+from streamlit_elements import elements, mui
 import plotly.express as px
 import numpy as np
 
@@ -16,210 +17,42 @@ st.set_page_config(     page_title="Ex-stream-ly Cool App",
          'About': "# This is a header. This is an *extremely* cool app!"
      })
 
+
 st.markdown("""
 <style>
-
-header.stAppHeader.st-emotion-cache-12fmjuu.ezrtsby2 {
-    background-color: #1a1c1f;
-}
-svg.eyeqlp53.st-emotion-cache-qsoh6x.ex0cdmw0 {
-    background-color: white;
-}
-            .st-emotion-cache-6qob1r.eczjsme11 {
-    background-color: #1a1c1f;
-            color:white;
-  transition: transform 0.3s ease-in-out;
-            
-}
-          button.st-emotion-cache-n5r31u.ef3psqc19:hover {
-    
-    color: white; /* Change text color */
-    cursor: pointer; /* Show pointer on hover */
-}
-                     
-            button.st-emotion-cache-n5r31u.ef3psqc19(:after) {
-  
+.st-emotion-cache-rci5h9 {
+    display: inline-flex
+;
+    -webkit-box-align: center;
+    border: none !important;
     background: transparent;
-            border:none;
-}
-            
-            button.st-emotion-cache-n5r31u.ef3psqc19 {
-    background-color: #1a1c1f !important;
-    border: none;
-}
-button.st-emotion-cache-n5r31u.ef3psqc19:hover {
-    background-color: #1a1c1f !important;
-    
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    font-weight: 400;
+    padding: 0.25rem 0.75rem;
+    border-radius: 0.5rem;
+    min-height: 2.5rem;
+    margin: 0px;
+    line-height: 1.6;
+    color: inherit;
+    width: auto;
     cursor: pointer;
-}
+    user-select: none;
+    /* background-color: rgb(43, 44, 54); */
+    border: 1px solid rgba(250, 250, 250, 0.2);}
             
-            section.stMain.st-emotion-cache-bm2z3a.ea3mdgi8 {
-            background-color: #353a40 !important;
-            color:white;
-            position: relative;
-}
-            details.st-emotion-cache-1h9usn1.eqpbllx3 {
+            .st-emotion-cache-13na8ym {
+    margin-bottom: 0px;
+    margin-top: 0px;
+    width: 100%;
+    border-style: solid;
+    border-width: 1px;
+    /* border-color: rgba(250, 250, 250, 0.2); */
+    /* border-radius: 0.5rem; */
     border: none;
 }
-    
-            
- svg.eyeqlp53.st-emotion-cache-qsoh6x.ex0cdmw0 {
-    background-color: #1a1c1f !important;
-            bordern:none !important;
-}
-      
-            
-
-
-button.st-emotion-cache-1igbibe.ef3psqc19 {
-    color: black;
-}
-
-   
-
-            .st-emotion-cache-1dtefog {
-            font-size:50px;
-    display: flex;
-    gap: 0.5rem;
-    -webkit-box-align: center;
-    align-items: center;
-    -webkit-box-flex: 1;
-    flex-grow: 1;
-}
-
-/* Add hover effect */
-.st-emotion-cache-1dtefog:hover {
-    background-color: rgba(255, 255, 255, 0.1) !important; /* Change background color on hover */
-    cursor: pointer; /* Change cursor to pointer to indicate interactivity */
-    transform: scale(1.02); /* Slightly enlarge the element */
-    transition: all 0.01s ease; /* Smooth transition for hover effects */
-            color:#33a0d7;
-            border-radius:5px;
-        font-size:50rem;
-            
-}
-.svg.eyeqlp53.st-emotion-cache-1b2ybts.ex0cdmw0 {
-    display: inline-grid
-;
-    visibility: hidden;
-}
-            
-
-            .st-emotion-cache-p5msec {
-    position: relative;
-    display: flex
-;
-    width: 100%;
-    font-size: 50px;
-   padding:0;
-    list-style-type: none;
-}
-            
-
-            .st-emotion-cache-1puwf6r p {
-    word-break: break-word;
-    margin-bottom: 0px;
-    font-size: 20px;
-}
-            
-            .st-emotion-cache-1puwf6r p {
-    word-break: break-word;
-    margin-bottom: 0px;
-    font-size: 20px;
-    padding-left: 1rem;
-}
-            
-            .st-emotion-cache-6qob1r.eczjsme11 {
-    background-color: #1a1c1f;
-    color: white;
-    box-shadow: 0px 4px 10px rgba(31, 20, 40, 0.7);
-    transition: transform 0.3s ease-in-out;
-}
-
-            
-            .st-emotion-cache-s16by7 {
-    display: flex
-;
-    -webkit-box-align: center;
-    align-items: center;
-    padding-top: 0px;
-    padding-bottom: 0px;
-    background: rgb(0,0,0);
-}
-            
-            .st-f7 {
-    display: block;
-    background-color: #1a1c1f !important;
-            color:white;
-            
-}
-                  .st-f7:hover {
-    display: block;
-    background-color: gray !important;
-            
-}
-            
-            .st-ak.st-al.st-bd.st-be.st-bf.st-as.st-bg.st-bh.st-ar.st-bi.st-bj.st-bk.st-bl {
-    background-color: #1a1c1f !important;
-            color:white;
-}
-            .st-ak.st-al.st-as.st-cl.st-bg.st-cm.st-bl {
-    background-color: #1a1c1f !important;
-}
-            .st-ak.st-al.st-bd.st-be.st-bf.st-as.st-bg.st-dr.st-ar.st-c4.st-c5.st-bk.st-c7 {
-    background-color: #1a1c1f !important;
-}
-
-            
- .st-dc {
-    background: transparent;
-            
-}
-            .st-dt {
-     background-color: #1a1c1f !important;
-}
-.st-es {
-    border-left-color: skyblue;
-}
-            .st-ev {
-    border-bottom-color: skyblue;
-}
-            .st-eu {
-    border-top-color: skyblue;
-}
-            .st-et {
-    border-right-color: skyblue;
-}
-            
-            .st-di {
-    border-color: skyblue;
-}
-            
-            .st-dh:hover {
-    margin-right: 2px;
-            background-color:#1a1c1f !important;
-}
-            
-            p{
-            
-            color:white;}
-
-            button.st-emotion-cache-1igbibe.ef3psqc19 {
-                border-radius: 50px;
-    background: #1067D5;
-    border: 50px;
-    border: 2px solid #4E5BD4;
-}
-            button.st-emotion-cache-1igbibe.ef3psqc19:hover{
-            border: 2px solid #21206A;
-            }
-
-            .st-emotion-cache-n5r31u:focus::after {
-   
-    color: rgb(255, 75, 75);
-}
-
-
+</style>
 
 
 
@@ -232,7 +65,7 @@ button.st-emotion-cache-1igbibe.ef3psqc19 {
 
 
 
-st.logo(r'assets/logo.svg', icon_image='assets/logo-sm.svg',size='large')
+st.logo(r'assets\logo.svg', icon_image='assets\logo-sm.svg',size='large')
 
 
 if "current_page" not in st.session_state:
@@ -240,6 +73,7 @@ if "current_page" not in st.session_state:
 
 # Define page content functions
 def home():
+
 
     st.header('this is header')
 def price_and_fundamental():
@@ -327,7 +161,7 @@ def price_and_fundamental():
             min_value=data['Date'].min(),
             max_value=data['Date'].max(),
             value=(data['Date'].min(), data['Date'].max()),
-            format="YYYY-MM-DD"
+            format="YYYY-MM-DD", key='this'
         )
 
 
@@ -445,7 +279,7 @@ def app_page():
     st.title("📊 PyGWalker Integration")
     st.write("Interactive visualizations with PyGWalker.")
 
-# Sidebar menu with expanders
+# # Sidebar menu with expanders
 with st.sidebar:
     
     with st.expander("Home", expanded=True):
