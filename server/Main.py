@@ -218,7 +218,15 @@ button.st-emotion-cache-1igbibe.ef3psqc19 {
    
     color: rgb(255, 75, 75);
 }
+
+
+
+
+
 """, unsafe_allow_html=True)
+
+
+
 
 
 
@@ -235,6 +243,7 @@ def home():
 
     st.header('this is header')
 def price_and_fundamental():
+    # st.header(st.get_option(theme.primaryColor))
     st.header('Price and Fundamentals')
 
     # Generate data dynamically for filters
@@ -293,8 +302,7 @@ def price_and_fundamental():
             )
             
             if st.button('Refresh job list'):
-                # st.experimental_rerun()
-                 pass
+                st.experimental_rerun()
             
             
 
@@ -363,17 +371,46 @@ def price_and_fundamental():
             title=f'Filtered Data Over Time ({selected_granularity})'
         )
 
-        # Update layout to make the background darker
+        # Update layout to customize background and text color
         fig.update_layout(
             plot_bgcolor='rgb(30,30,30)',  # Dark gray for the plot area
             paper_bgcolor='rgb(20,20,20)',  # Darker gray for the outer area
-            font=dict(color='white'),  # White font color for text
-            title_font=dict(size=20, color='white'),  # Title font color and size
-            xaxis=dict(showgrid=False, color='white'),  # White x-axis labels
-            yaxis=dict(showgrid=True, gridcolor='gray', color='white')  # White y-axis labels and gray gridlines
+            font=dict(
+                color='white',  # White font color for all text
+                size=14,        # Global font size
+            ),
+            title=dict(
+                text=f'Filtered Data Over Time ({selected_granularity})',
+                font=dict(
+                    size=20,
+                    color='white'
+                )
+            ),
+            xaxis=dict(
+                showgrid=False,
+                color='white',  # White x-axis labels
+                title=dict(
+                    text='Date',
+                    font=dict(color='white')  # X-axis title color
+                )
+            ),
+            yaxis=dict(
+                showgrid=True,
+                gridcolor='gray',  # Gray gridlines
+                color='white',  # White y-axis labels
+                title=dict(
+                    text='Value',
+                    font=dict(color='white')  # Y-axis title color
+                )
+            ),
+            legend=dict(
+                title=dict(text='Area', font=dict(color='white')),  # Legend title color
+                font=dict(color='white')  # Legend items color
+            )
         )
 
         st.plotly_chart(fig, use_container_width=True)
+
 
         st.subheader('Original Data')
         st.dataframe(data, use_container_width=True)
@@ -434,7 +471,7 @@ with st.sidebar:
             st.session_state.current_page = "weather_paths"
 
     with st.expander("Commodities Scenarios"):
-        if st.button("📊 PyGWalker"):
+        if st.button("📊 PyGWalker", key='rajratan'):
             st.session_state.current_page = "app_page"
 
 # Render the selected page
@@ -454,4 +491,5 @@ elif st.session_state.current_page == "weather_paths":
     weather_paths()
 elif st.session_state.current_page == "app_page":
     app_page()
+
 
