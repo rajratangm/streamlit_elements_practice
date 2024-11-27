@@ -224,7 +224,7 @@ button.st-emotion-cache-1igbibe.ef3psqc19 {
 
 
 
-st.logo(r'assets\logo.svg', icon_image=r'assets\logo-sm.svg',size='large')
+st.logo(r'assets/logo.svg', icon_image=r'assets/logo-sm.svg',size='large')
 
 
 if "current_page" not in st.session_state:
