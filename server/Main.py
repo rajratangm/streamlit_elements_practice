@@ -1,11 +1,11 @@
 import streamlit as st
 from datetime import datetime
 import pandas as pd
-
+from streamlit_modal import Modal
 import plotly.express as px
 import numpy as np
 
-
+from streamlit_modal import Modal
 st.set_page_config(     page_title="Ex-stream-ly Cool App",
      page_icon="🧊",
      layout="wide",
@@ -224,7 +224,7 @@ button.st-emotion-cache-1igbibe.ef3psqc19 {
 
 
 
-st.logo(r'assets/logo.svg', icon_image=r'assets/logo-sm.svg',size='large')
+st.logo(r'assets\logo.svg', icon_image='assets\logo-sm.svg',size='large')
 
 
 if "current_page" not in st.session_state:
@@ -284,18 +284,18 @@ def price_and_fundamental():
             compare_jobs = st.checkbox('Compare two jobs', help='Compare jobs here')
         with col1_col2:
             select_all_areas = st.checkbox('Select all areas', help='Select all areas here')
+            st.button('Load Data')
         with col1_col3:
-              show_inputs_only = st.checkbox(
-                  'Show inputs only',
-                  help="Check to show only the inputs for the run. Useful if the run hasn't been solved and inserted yet.",
-                  key="Show_inputs_only"
-              )
-              col3_1, col3_2 = st.columns(2)
-              with col3_1:
-                  if st.button('Refresh job list'):
-                      st.experimental_rerun()
-              with col3_2:
-                  st.button('Load Data')
+            show_inputs_only = st.checkbox(
+                'Show inputs only',
+                help="Check to show only the inputs for the run. Useful if the run hasn't been solved and inserted yet.",
+                key="Show_inputs_only"
+            )
+            
+            if st.button('Refresh job list'):
+                st.experimental_rerun()
+            
+            
 
     # Right Column Filters
     with col2:
