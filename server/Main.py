@@ -293,7 +293,8 @@ def price_and_fundamental():
             )
             
             if st.button('Refresh job list'):
-                st.experimental_rerun()
+                # st.experimental_rerun()
+                 pass
             
             
 
