@@ -1,0 +1,7 @@
+streamlit 
+pandas
+numpy 
+streamlit-option-menu
+st_link_analysis>=0.0.1
+matplotlib
+
