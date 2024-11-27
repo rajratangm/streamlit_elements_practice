@@ -206,12 +206,12 @@ button.st-emotion-cache-1igbibe.ef3psqc19 {
 
             button.st-emotion-cache-1igbibe.ef3psqc19 {
                 border-radius: 50px;
-    background: green;
+    background: #1067D5;
     border: 50px;
-    border: 2px solid pink;
+    border: 2px solid #4E5BD4;
 }
             button.st-emotion-cache-1igbibe.ef3psqc19:hover{
-            border: 2px solid brown;
+            border: 2px solid #21206A;
             }
 
             .st-emotion-cache-n5r31u:focus::after {
