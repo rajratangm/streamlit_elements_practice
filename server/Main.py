@@ -5,7 +5,7 @@ import pandas as pd
 import plotly.express as px
 import numpy as np
 
-from streamlit_modal import Modal
+
 st.set_page_config(     page_title="Ex-stream-ly Cool App",
      page_icon="🧊",
      layout="wide",
