@@ -285,17 +285,17 @@ def price_and_fundamental():
         with col1_col2:
             select_all_areas = st.checkbox('Select all areas', help='Select all areas here')
         with col1_col3:
-            show_inputs_only = st.checkbox(
-                'Show inputs only',
-                help="Check to show only the inputs for the run. Useful if the run hasn't been solved and inserted yet.",
-                key="Show_inputs_only"
-            )
-             col3_1, col3_2 = st.columns(2)
-             with col3_1:
+              show_inputs_only = st.checkbox(
+                  'Show inputs only',
+                  help="Check to show only the inputs for the run. Useful if the run hasn't been solved and inserted yet.",
+                  key="Show_inputs_only"
+              )
+              col3_1, col3_2 = st.columns(2)
+              with col3_1:
                   if st.button('Refresh job list'):
-                     st.experimental_rerun()
-            with col3_2:
-                 st.button('Load Data')
+                      st.experimental_rerun()
+              with col3_2:
+                  st.button('Load Data')
 
     # Right Column Filters
     with col2:
