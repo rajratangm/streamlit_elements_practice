@@ -1,19 +1,27 @@
 [tool.poetry]
 name = "practice"
 version = "0.1.0"
-description = ""
-authors = ["Rajratan Gulab More <145323630+rajratangm@users.noreply.github.com>"]
+description = "A practice project with Streamlit, Pygwalker, and testing dependencies"
+authors = ["Your Name <you@example.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.11"
-streamlit = "^1.40.1"
-streamlit-elements = "^0.1.0"
-streamlit-card = "^1.0.2"
-streamlit-navigation-bar="3.3.0"
-streamlit-option-menu="0.4.0"
+matplotlib-inline = "0.1.6"
+pygwalker = "0.4.9.13"  # Ensure compatibility with numpy <2.0.0
+streamlit = "1.40.0"
+streamlit-modal = "0.1.2"
+plotly = "^5.17.0"  # Add Plotly dependency here
 
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.0"
+pytest-cov = "^3.0.0"
+pytest-mock = "^3.0.0"
+selenium = "^4.26.1"
+extra-streamlit-components = "0.1.71"
+streamlit-router = "0.1.8"
 
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
